@@ -6,61 +6,45 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
       .banner {
-        height: 400px;
-        background-image: url('https://drive.google.com/uc?export=view&id=1B6fLqd-0Z5o-5c_6YEXTIbrNn1g-OsFf');
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        max-width: 100%;
-        max-height: 100%;
-        position: relative;
+        /* ... existing styles ... */
       }
 
-      .banner-heading {
-        font-size: 18px;
-        color: #000000;
-        opacity: 0;
-        position: absolute;
-        left: 82%;
-        top: 20%;
-        transform: translateX(-50%);
-        animation: text-fade-in 2.5s forwards 0.8s;
+      /* Add styles for the thumbnail container */
+      .thumbnails {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 20px auto;
       }
 
       /* Add styles for the thumbnail */
-      #image-link {
+      .image-link {
         cursor: pointer;
         width: 100%;
         max-width: 480px;
-        margin: 20px auto;
-        display: block;
+        margin: 10px;
       }
 
-      @keyframes text-fade-in {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
+      /* ... other styles ... */
     </style>
   </head>
   <body>
     <div class="banner">
-      <h1 class="banner-heading">On one particularly stormy night, as the Flying Dutchman traversed the inky-black waves, a fierce storm broke out, unlike any the cursed crew had seen before. The wind howled like a tortured soul, and the ocean roared, churning up colossal waves that threatened to consume the ship.</h1>
+      <!-- ... other content ... -->
     </div>
 
-    <!-- Add the thumbnail image -->
-    <img id="image-link" src="https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a" alt="Clickable Image">
+    <!-- Add the thumbnail container -->
+    <div class="thumbnails">
+      <!-- Add the first thumbnail image -->
+      <img class="image-link" src="https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a" alt="Clickable Image" data-image-url="https://zwsprofeet.github.io/ai_generated_art/iframe.html">
+      <!-- Add the second thumbnail image -->
+      <img class="image-link" src="https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a" alt="Clickable Image" data-image-url="https://zwsprofeet.github.io/ai_generated_art/iframe2.html">
+    </div>
 
     <!-- Add the script to open the pop-up -->
     <script>
-      const imageURL = 'https://zwsprofeet.github.io/ai_generated_art/iframe.html';
-
-      $('#image-link').on('click', function() {
+      $('.image-link').on('click', function() {
+        const imageURL = $(this).data('image-url');
         window.open(imageURL, '_blank', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=640,height=480');
       });
     </script>
