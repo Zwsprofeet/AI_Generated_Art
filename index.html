@@ -1,30 +1,23 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My AI Generated Art Website</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-      body {
-        text-align: center;
-      }
-
-      #image-link {
-        cursor: pointer;
-        width: 100%;
-        max-width: 480px;
-      }
-    </style>
-  </head>
-  <body>
-    <h1>AI Generated Art</h1>
-    <img id="image-link" src="https://drive.google.com/uc?export=view&id=1B6fLqd-0Z5o-5c_6YEXTIbrNn1g-OsFf" alt="Clickable Image">
-
-    <script>
-      const imageURL = 'https://zwsprofeet.github.io/ai_generated_art/Iframe.html';
-
-      $('#image-link').on('click', function() {
-        window.open(imageURL, '_blank', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=640,height=480');
-      });
-    </script>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iframe Popup</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    iframe {
+      border: none;
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <iframe src="https://zwsprofeet.github.io/ai_generated_art/Image_popup.html" scrolling="no"></iframe>
+</body>
 </html>
