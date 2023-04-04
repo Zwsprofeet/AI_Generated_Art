@@ -1,2 +1,2 @@
-# AI_Generated_Art
-Repository for the webpage: AI_Generated_Art
+# ai_generated_art
+Repository for the webpage: ai_generated_art
