@@ -16,7 +16,7 @@
 <body>
   <img id="image-link" src="Image_PreparingForBattle.jpg" alt="Clickable Image">
   <script>
-    const imageURL = 'https://zwsprofeet.github.io/AI_Generated_Art/Iframe.html'; // Change this line to the correct Iframe URL
+    const imageURL = 'https://zwsprofeet.github.io/ai_generated_art/Iframe.html'; // Change this line to the correct Iframe URL
 
     $('#image-link').on('click', function() {
       window.open(imageURL, '_blank', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=640,height=480');
