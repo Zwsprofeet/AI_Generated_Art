@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>My AI Generated Art Website</title>
+    <!-- Add styles and script for the thumbnail -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
       .banner {
         height: 400px;
@@ -16,58 +18,34 @@
         position: relative;
       }
 
-      .banner-heading {
-        font-size: 18px;
-        color: #000000;
-        opacity: 0;
-        position: absolute;
-        left: 82%;
-        top: 20%;
-        transform: translateX(-50%);
-        animation: text-fade-in 2.5s forwards 0.8s;
+      /* Add styles for the thumbnail */
+      #image-link {
+        cursor: pointer;
+        width: 100%;
+        max-width: 480px;
+        margin: 20px auto;
+        display: block;
       }
 
-      .mobile-heading {
-        display: none;
-      }
-
-      @keyframes text-fade-in {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
-      }
-
-      @media (max-width: 480px) and (max-height: 240px) {
-        .banner {
-          height: 280px;
-          width: 480px;
-          background-size: cover;
-          position: relative;
-        }
-
-        .banner-heading {
-          display: none;
-        }
-
-        .mobile-heading {
-          font-size: 12px;
-          color: #000000;
-          opacity: 0;
-          position: absolute;
-          bottom: 10%;
-          left: 80%;
-          transform: translateX(-50%);
-          animation: text-fade-in 2.5s forwards 0.8s;
-          display: block;
-        }
-      }
+      /* ... other styles ... */
     </style>
   </head>
   <body>
     <div class="banner">
-      <h1 class="banner-heading">On one particularly stormy night, as the Flying Dutchman traversed the inky-black waves, a fierce storm broke out, unlike any the cursed crew had seen before. The wind howled like a tortured soul, and the ocean roared, churning up colossal waves that threatened to consume the ship.</h1>
-      <h1 class="mobile-heading">AI Generated Art</h1>
+      <!-- ... other content ... -->
     </div>
+
+    <!-- Add the thumbnail image -->
+    <img id="image-link" src="https://drive.google.com/uc?id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a' alt="Clickable Image">
+
+    <!-- Add the script to open the pop-up -->
+    <script>
+      const imageURL = 'https://zwsprofeet.github.io/ai_generated_art/Iframe.html';
+
+      $('#image-link').on('click', function() {
+        window.open(imageURL, '_blank', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=640,height=480');
+      });
+    </script>
+  </body>
+</html>
+
