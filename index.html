@@ -18,6 +18,21 @@
         position: relative;
       }
 
+      .banner-heading {
+        font-size: 18px;
+        color: #000000;
+        opacity: 0;
+        position: absolute;
+        left: 82%;
+        top: 20%;
+        transform: translateX(-50%);
+        animation: text-fade-in 2.5s forwards 0.8s;
+      }
+
+      .mobile-heading {
+        display: none;
+      }
+
       /* Add styles for the thumbnail */
       .image-link {
         cursor: pointer;
@@ -27,7 +42,31 @@
         display: inline-block;
       }
 
-      /* ... other styles ... */
+      @keyframes text-fade-in {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .banner-heading {
+          display: none;
+        }
+
+        .mobile-heading {
+          display: block;
+          font-size: 32px;
+          color: #000000;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          animation: text-fade-in 2.5s forwards 0.8s;
+        }
+      }
     </style>
   </head>
   <body>
@@ -51,3 +90,4 @@
     </script>
   </body>
 </html>
+       
