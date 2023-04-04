@@ -4,9 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI Generated Art</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+
+    img {
+      max-width: 100%;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <h1>AI Generated Art</h1>
-  <a href="https://zwsprofeet.github.io/ai_generated_art/Iframe.html" target="_blank">Click to view the image</a>
+  <img id="image-link" src="https://drive.google.com/uc?export=view&id=1B6fLqd-0Z5o-5c_6YEXTIbrNn1g-OsFf" alt="AI Generated Art">
+  <p>Once upon a time, aboard the cursed ship known as the Flying Dutchman, Captain Vanderdecken and his phantom crew were bound to sail the stormy seas for all eternity...</p>
+
+  <script>
+    const imageURL = 'https://drive.google.com/uc?export=view&id=1B6fLqd-0Z5o-5c_6YEXTIbrNn1g-OsFf';
+
+    document.getElementById('image-link').addEventListener('click', function() {
+      window.open(imageURL, '_blank');
+    });
+  </script>
 </body>
 </html>
