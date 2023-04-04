@@ -6,15 +6,16 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
       .banner {
-        /* ... existing styles ... */
-      }
-
-      /* Add styles for the thumbnail container */
-      .thumbnails {
+        height: 400px;
+        background-image: url('https://drive.google.com/uc?export=view&id=1B6fLqd-0Z5o-5c_6YEXTIbrNn1g-OsFf');
+        background-size: cover;
+        background-position: center;
         display: flex;
         justify-content: center;
-        flex-wrap: wrap;
-        margin: 20px auto;
+        align-items: flex-end;
+        max-width: 100%;
+        max-height: 100%;
+        position: relative;
       }
 
       /* Add styles for the thumbnail */
@@ -22,7 +23,8 @@
         cursor: pointer;
         width: 100%;
         max-width: 480px;
-        margin: 10px;
+        margin: 20px auto;
+        display: inline-block;
       }
 
       /* ... other styles ... */
@@ -30,16 +32,15 @@
   </head>
   <body>
     <div class="banner">
-      <!-- ... other content ... -->
+      <h1 class="banner-heading">On one particularly stormy night, as the Flying Dutchman traversed the inky-black waves, a fierce storm broke out, unlike any the cursed crew had seen before. The wind howled like a tortured soul, and the ocean roared, churning up colossal waves that threatened to consume the ship.</h1>
+      <h1 class="mobile-heading">AI Generated Art</h1>
     </div>
 
-    <!-- Add the thumbnail container -->
-    <div class="thumbnails">
-      <!-- Add the first thumbnail image -->
-      <img class="image-link" src="https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a" alt="Clickable Image" data-image-url="https://zwsprofeet.github.io/ai_generated_art/iframe.html">
-      <!-- Add the second thumbnail image -->
-      <img class="image-link" src="https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a" alt="Clickable Image" data-image-url="https://zwsprofeet.github.io/ai_generated_art/iframe2.html">
-    </div>
+    <!-- Add the first thumbnail image -->
+    <img class="image-link" src="https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a" alt="Clickable Image" data-image-url="https://zwsprofeet.github.io/ai_generated_art/iframe.html">
+
+    <!-- Add the second thumbnail image -->
+    <img class="image-link" src="https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a" alt="Clickable Image" data-image-url="https://zwsprofeet.github.io/ai_generated_art/iframe2.html">
 
     <!-- Add the script to open the pop-up -->
     <script>
