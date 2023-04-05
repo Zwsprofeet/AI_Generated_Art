@@ -39,11 +39,15 @@
         vertical-align: top;
       }
 
-      .thumbnail-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-}
+     <style>
+  /*... existing styles ...*/
+
+  .thumbnail-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+</style>
       }
 
       @keyframes text-fade-in {
@@ -62,7 +66,6 @@
     </div>
 
     <div class="thumbnail-container">
-      <div class="thumbnail-container">
   <!-- Add the first thumbnail image -->
   <img class="image-link" src="your_thumbnail1_image_url" alt="Clickable Image" data-image-url="your_popup1_url">
 
@@ -74,7 +77,7 @@
 
   <!-- Add the fourth thumbnail image -->
   <img class="image-link" src="your_thumbnail4_image_url" alt="Clickable Image" data-image-url="your_popup4_url">
-    </div>
+</div>
            <!-- Add the script to open the pop-up and change banner text -->
     <script>
       $('.image-link').on('click', function() {
