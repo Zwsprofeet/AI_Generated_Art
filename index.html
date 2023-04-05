@@ -103,23 +103,32 @@
     </div>
     
     <!-- Add the script to open the pop-up and change banner text -->
-    <script>
-      $('.image-link').on('click', function() {
-        const imageURL = $(this).data('image-url');
-        window.open(imageURL, '_blank', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=640,height=480');
-      });
+   <!-- Add the script to open the pop-up and change banner text -->
+<script>
+  $('.image-link').on('click', function() {
+    const imageURL = $(this).data('image-url');
+    window.open(imageURL, '_blank', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=640,height=480');
+  });
 
-      function setBannerText() {
-        const desktopText = 'Text Here';
-        const mobileText = 'AI Generated Art';
-        const desktopTextElement = document.getElementById('desktop-text');
-        const mobileTextElement = document.getElementById('mobile-text');
+  function setBannerText() {
+    const desktopText = 'Text Here';
+    const mobileText = 'AI Generated Art';
+    const desktopTextElement = document.getElementById('desktop-text');
+    const mobileTextElement = document.getElementById('mobile-text');
 
-        desktopTextElement.textContent = desktopText;
-        mobileTextElement.textContent = mobileText;
-      }
+    if (window.matchMedia('(min-width: 768px)').matches) {
+      desktopTextElement.textContent = desktopText;
+      desktopTextElement.style.display = 'block';
+      mobileTextElement.style.display = 'none';
+    } else {
+      mobileTextElement.textContent = mobileText;
+      mobileTextElement.style.display = 'block';
+      desktopTextElement.style.display = 'none';
+    }
+  }
 
-      setBannerText();
-    </script>
+  setBannerText();
+  window.addEventListener('resize', setBannerText);
+</script>
   </body>
 </html>
