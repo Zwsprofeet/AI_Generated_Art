@@ -102,8 +102,8 @@
       <img class="image-link" src="https://drive.google.com/uc?export=view&id=1fwErKNXGt4hMuegRxR11VOCOrhfcFLze" alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1fwErKNXGt4hMuegRxR11VOCOrhfcFLze">
     </div>
     
-    <!-- Add the script to open the pop-up and change banner text -->
    <!-- Add the script to open the pop-up and change banner text -->
+<!-- Add the script to open the pop-up and change banner text -->
 <script>
   $('.image-link').on('click', function() {
     const imageURL = $(this).data('image-url');
@@ -129,6 +129,19 @@
 
   setBannerText();
   window.addEventListener('resize', setBannerText);
+  
+  function openImageInNewTab(url) {
+    const newWindow = window.open(url, '_blank');
+    newWindow.opener = null;
+  }
+  
+  $('.image-link').on('click', function() {
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      const imageURL = $(this).data('image-url');
+      openImageInNewTab(imageURL);
+    } else {
+      const imageURL = $(this).data('image-url');
+      window.open(imageURL, '_blank', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=640,height=480');
+    }
+  });
 </script>
-  </body>
-</html>
