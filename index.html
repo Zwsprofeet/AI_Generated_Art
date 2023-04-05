@@ -64,6 +64,7 @@
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        padding: 0 20px; /* Add padding to the sides of the container */
       }
 
       @keyframes text-fade-in {
@@ -83,36 +84,24 @@
       }
 
       @media screen and (max-width: 767px) {
-  .mobile-text {
-    display: block;
-  }
-  
-  .pitch {
-  font-family: 'Shadows Into Light', sans-serif;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: justify;
-  font-size: 12px;
-}
+        .mobile-text {
+          display: block;
+        }
 
-.thumbnail-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 0 20px; /* Add padding to the sides of the container */
-}
+        .image-link {
+          max-width: 100%; /* Set max-width to 100% for mobile */
+        }
+        
+        .pitch {
+          font-family: 'Shadows Into Light', sans-serif;
+          margin: 0 auto;
+          padding: 20px;
+          text-align: justify;
+          font-size: 12px;
+          max-width: 100%; /* Set max-width to 100% */
+        }
+      }
 
-@media screen and (max-width: 767px) {
-  .mobile-text {
-    display: block;
-  }
-
-  .pitch {
-    max-width: 100%; /* Set max-width to 100% */
-    padding: 20px; /* Add padding to the sides of the pitch text */
-  }
-}
-      
       /* Add pitch text style */
       .pitch {
         font-family: 'Shadows Into Light', sans-serif; /* Added font-family */
@@ -121,7 +110,7 @@
         padding: 20px;
         text-align: justify;
         font-size: 12px;
-      }        
+      }
     </style>
   </head>
   <body>
@@ -129,7 +118,7 @@
       <h1 id="desktop-text" class="text desktop-text"></h1>
       <h1 id="mobile-text" class="text mobile-text"></h1>
     </div>
-    
+
     <!-- Add the pitch text below the banner -->
     <div class="pitch">
       <p>Are you a fan of art? What if you could experience something completely unique and unlike anything you've ever seen before?
@@ -142,7 +131,8 @@ Introducing AI generated art - an entirely new approach to creating beautiful an
 
       <!-- Add the second thumbnail image -->
       <img class="image-link" src="https://drive.google.com/uc?export=view&id=174EJwtDEASx6uj5J-CQKto8INj1RgWoZ" alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=174EJwtDEASx6uj5J-CQKto8INj1RgWoZ">
-<!-- Add the third thumbnail image -->
+
+      <!-- Add the third thumbnail image -->
       <img class="image-link" src="https://drive.google.com/uc?export=view&id=1XFJNXha2X5L0RGrTWKWvxoemN5pJu06v" alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1XFJNXha2X5L0RGrTWKWvxoemN5pJu06v">
 
       <!-- Add the fourth thumbnail image -->
@@ -178,7 +168,7 @@ Introducing AI generated art - an entirely new approach to creating beautiful an
       desktopTextElement.style.display = 'none';
     }
   }
-
+      
   setBannerText();
   window.addEventListener('resize', setBannerText);
 
