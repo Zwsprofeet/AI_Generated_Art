@@ -78,12 +78,10 @@
       }
 
       .pitch {
-        background: rgba(248, 177, 149, 0.7); /* Add a semi-transparent background behind the pitch text */
-        border-radius: 5px; /* Add rounded corners to the background */
-        text-align: center;
-      }
+    text-align: center; /* Add this line to center the pitch text and its background */
+  }
 
-      .pitch p {
+  .pitch p {
     display: inline-block;
     padding: 10px;
     background: rgba(248, 177, 149, 0.7); /* Add a semi-transparent background behind the pitch text */
@@ -91,24 +89,24 @@
     max-width: 90%; /* Add a max-width */
   }
 
-  /* Add the media query below */
+  /* Add the media query for the pitch */
   @media screen and (min-width: 768px) {
     .pitch p {
       max-width: 60%; /* Adjust the max-width for desktop */
     }
   }
+
+  /* Add the media query for the mobile text */
+  @media screen and (max-width: 767px) {
+    .mobile-text {
+      display: block;
+    }
+
+    .image-link {
+      max-width: 100%; /* Set max-width to 100% for mobile */
+    }
+  }
 </style>
-
-      @media screen and (max-width: 767px) {
-        .mobile-text {
-          display: block;
-        }
-
-        .image-link {
-          max-width: 100%; /* Set max-width to 100% for mobile */
-        }
-      }
-    </style>
   </head>
   <body>
     <div class="banner">
