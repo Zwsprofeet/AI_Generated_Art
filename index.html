@@ -60,7 +60,7 @@
     <!-- Add the second thumbnail image -->
     <img class="image-link" src="https://drive.google.com/uc?export=view&id=174EJwtDEASx6uj5J-CQKto8INj1RgWoZ" alt="Clickable Image" data-image-url="https://zwsprofeet.github.io/ai_generated_art/iframe2.html">
 
-        <!-- Add the script to open the pop-up and change banner text -->
+           <!-- Add the script to open the pop-up and change banner text -->
     <script>
       $('.image-link').on('click', function() {
         const imageURL = $(this).data('image-url');
@@ -72,7 +72,7 @@
         const mobileText = 'AI Generated Art';
         const bannerTextElement = document.getElementById('banner-text');
 
-        if (window.innerWidth <= 767) {
+        if (window.matchMedia('(max-width: 767px)').matches) {
           bannerTextElement.textContent = mobileText;
         } else {
           bannerTextElement.textContent = desktopText;
