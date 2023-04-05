@@ -74,27 +74,27 @@
       <img class="image-link" src="your_thumbnail4_image_url" alt="Clickable Image" data-image-url="your_popup4_url">
     </div>
     
-    <!-- Add the script to open the pop-up and change banner text -->
-<script>
-  $('.image-link').on('click', function() {
-    const imageURL = $(this).data('image-url');
-    window.open(imageURL, '_blank', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=640,height=480');
-  });
+   <!-- Add the script to open the pop-up and change banner text -->
+    <script>
+      $('.image-link').on('click', function() {
+        const imageURL = $(this).data('image-url');
+        window.open(imageURL, '_blank', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=640,height=480');
+      });
 
-  function setBannerText() {
-    const desktopText = 'On one particularly stormy night, as the Flying Dutchman traversed the inky-black waves, a fierce storm broke out, unlike any the cursed crew had seen before. The wind howled like a tortured soul, and the ocean roared, churning up colossal waves that threatened to consume the ship.';
-    const mobileText = 'AI Generated Art';
-    const bannerTextElement = document.getElementById('banner-text');
+      function setBannerText() {
+        const desktopText = 'On one particularly stormy night, as the Flying Dutchman traversed the inky-black waves, a fierce storm broke out, unlike any the cursed crew had seen before. The wind howled like a tortured soul, and the ocean roared, churning up colossal waves that threatened to consume the ship.';
+        const mobileText = 'AI Generated Art';
+        const bannerTextElement = document.getElementById('banner-text');
 
-    if (window.matchMedia('(max-width: 767px)').matches) {
-      bannerTextElement.textContent = mobileText;
-    } else {
-      bannerTextElement.textContent = desktopText;
-    }
-  }
+        if (window.matchMedia('(max-width: 767px)').matches) {
+          bannerTextElement.textContent = mobileText;
+        } else {
+          bannerTextElement.textContent = desktopText;
+        }
+      }
 
-  setBannerText();
-  window.addEventListener('resize', setBannerText);
-</script>
-</body>
+      setBannerText();
+      window.addEventListener('resize', setBannerText);
+    </script>
+  </body>
 </html>
