@@ -101,14 +101,7 @@
           padding: 20px;
           text-align: justify;
           font-size: 12px;
-          max-width: 100%; /* Set max-width to 100% */
-          
-          /* Add pitch background styles for desktop */
-     @media screen and (min-width: 768px) {
-       .pitch {
-         background-color: #F8B195; /* Replace with your desired color */
-         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%23a19d8f' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
+          max-width: 100%; /* Set max-width to 100% */                  
       }
 
       /* Add pitch text style */
@@ -156,9 +149,18 @@ Introducing AI generated art - an entirely new approach to creating beautiful an
       
 <!-- Add the script to open the pop-up and change banner text -->
 <script>
+  function openImageInNewTab(url) {
+    const newWindow = window.open(url, '_blank');
+    newWindow.opener = null;
+  }
+
   $('.image-link').on('click', function() {
     const imageURL = $(this).data('image-url');
-    window.open(imageURL, '_blank', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=640,height=480');
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      openImageInNewTab(imageURL);
+    } else {
+      window.open(imageURL, '_blank', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=640,height=480');
+    }
   });
 
   function setBannerText() {
@@ -177,25 +179,8 @@ Introducing AI generated art - an entirely new approach to creating beautiful an
       desktopTextElement.style.display = 'none';
     }
   }
-      
-  setBannerText();
+
+  // Call setBannerText on load and when the window is resized
+  window.addEventListener('load', setBannerText);
   window.addEventListener('resize', setBannerText);
-
-  function openImageInNewTab(url) {
-    const newWindow = window.open(url, '_blank');
-    newWindow.opener = null;
-  }
-
-  $('.image-link').on('click', function() {
-    if (window.matchMedia('(max-width: 767px)').matches) {
-      const imageURL = $(this).data('image-url');
-      openImageInNewTab(imageURL);
-    } else {
-      const imageURL = $(this).data('image-url');
-      window.open(imageURL, '_blank', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=640,height=480');
-    }
-  });
 </script>
-      
-      
-#d7d0bb
