@@ -72,13 +72,18 @@
         const mobileText = 'AI Generated Art';
         const bannerTextElement = document.getElementById('banner-text');
 
-        if (window.innerWidth <= 767) {
+        if (window.matchMedia('(max-width: 767px)').matches) {
           bannerTextElement.textContent = mobileText;
         } else {
           bannerTextElement.textContent = desktopText;
         }
       }
 
+      setBannerText();
+      window.addEventListener('resize', setBannerText);
+    </script>
+  </body>
+</html>
       setBannerText();
       window.addEventListener('resize', setBannerText);
     </script>
