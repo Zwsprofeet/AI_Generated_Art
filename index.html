@@ -80,22 +80,24 @@
       .pitch {
         background: rgba(248, 177, 149, 0.7); /* Add a semi-transparent background behind the pitch text */
         border-radius: 5px; /* Add rounded corners to the background */
+        text-align: center;
       }
 
       .pitch p {
-        display: inline-block;
-        padding: 10px;
-        background: rgba(248, 177, 149, 0.7); /* Add a semi-transparent background behind the pitch text */
-        border-radius: 5px; /* Add rounded corners to the background */
-        max-width: 90%; /* Add a max-width */
-      }
+    display: inline-block;
+    padding: 10px;
+    background: rgba(248, 177, 149, 0.7); /* Add a semi-transparent background behind the pitch text */
+    border-radius: 5px; /* Add rounded corners to the background */
+    max-width: 90%; /* Add a max-width */
+  }
 
-      @media screen and (min-width: 768px) {
-        .pitch p {
-          max-width: 60%; /* Adjust the max-width for desktop */
-          margin: 0 auto; /* Center the pitch text */
-        }
-      }
+  /* Add the media query below */
+  @media screen and (min-width: 768px) {
+    .pitch p {
+      max-width: 60%; /* Adjust the max-width for desktop */
+    }
+  }
+</style>
 
       @media screen and (max-width: 767px) {
         .mobile-text {
