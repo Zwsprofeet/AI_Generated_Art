@@ -352,9 +352,7 @@ As the hovercrafts settled onto the planet's surface, the air crackled with an o
       const imageUrl = event.target.dataset.image_url;
       const text = event.target.dataset.text;
       showPopup(imageUrl, text);
-    });
-  });
-
+    
   // Close the popup when clicking outside of it
   window.addEventListener("click", (event) => {
     if (event.target === document.getElementById("popup")) {
