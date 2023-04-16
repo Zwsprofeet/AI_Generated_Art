@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Homepage</title>
@@ -8,17 +9,29 @@
       body {
         font-family: "Shadows Into Light", sans-serif;
         background-color: #424555;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
         margin: 0;
+      }
+
+      .banner {
+        height: 300px;
+        background-size: cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url('https://drive.google.com/uc?export=view&id=1MaOuM55g1WFUAjiZd9a8hWY5k9N0_lPp');
+      }
+
+      .text {
+        text-align: center;
+        color: white;
       }
 
       .homepage-container {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
         gap: 20px;
+        padding: 20px;
       }
 
       .thumbnail {
@@ -26,9 +39,6 @@
         height: 200px;
         background-size: cover;
         border-radius: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
         cursor: pointer;
       }
 
@@ -36,24 +46,58 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       }
 
+      .thumbnail-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
       .thumbnail p {
         color: white;
         font-size: 24px;
         text-align: center;
+        margin-top: 10px;
+      }
+
+      .pitch-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px;
+        gap: 20px;
+      }
+
+      .pitch {
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        color: #ced4de;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 300px;
       }
     </style>
   </head>
   <body>
+    <div class="banner">
+      <h1 class="text">AI Generated Art</h1>
+    </div>
+
+    <div class="pitch-container">
+      <div class="pitch">
+        <h2>Discover Unique Art</h2>
+        <p>
+          Are you a fan of art? What if you could experience something completely unique and unlike anything you've ever seen before? Introducing AI generated art - an entirely new approach to creating beautiful and thought-provoking artwork.
+        </p>
+      </div>
+    </div>
+
     <div class="homepage-container">
       <a href="art_gallery.html">
-        <div
-          class="thumbnail"
-          style="background-image: url('https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a');"
-        >
-          <p>AI Art Gallery</p>
-        </div>
-      </a>
-      <!-- Add more thumbnails with links to other pages -->
-    </div>
-  </body>
-</html>
+        <div class="thumbnail-container">
+          <div
+            class="thumbnail"
+            style="
+
