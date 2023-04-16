@@ -19,7 +19,7 @@
         background-color: #424555;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%235c5a60' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
       }
-
+      
       .banner {
         height: 400px;
         background-size: cover;
@@ -28,131 +28,78 @@
         justify-content: center;
         align-items: flex-end;
         max-width: 100%;
-       
-        padding-bottom: 30px;
-      }
-
-      .banner h1 {
-        font-size: 50px;
-        font-family: 'Shadows Into Light', cursive;
-        color: #ffffff;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-      }
-
-      .thumbnails {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-        padding: 20px;
-      }
-
-      .thumbnail {
+        max-height: 100%;
         position: relative;
-        overflow: hidden;
-        cursor: pointer;
       }
 
-      .thumbnail img {
-        width: 100%;
-        height: auto;
-        transition: transform 0.5s;
-      }
-
-      .thumbnail:hover img {
-        transform: scale(1.1);
-      }
-
-      .thumbnail .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+      .text {
+        font-family: 'Shadows Into Light', sans-serif; /* Added font-family */
+        font-size: 36px;
+        color: #dfe9eb;
         opacity: 0;
-        transition: opacity 0.5s;
-      }
-
-      .thumbnail:hover .overlay {
-        opacity: 1;
-      }
-
-      .thumbnail h3 {
         position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 20px;
-        font-size: 24px;
-        font-family: 'Shadows Into Light', cursive;
-        color: #ffffff;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+        left: 74%;
+        top: 75%;
+        transform: translateY(-50%);
+        animation: fadeIn 2s ease-in-out forwards;
       }
 
-      .popup {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        z-index: 1000;
-        justify-content: center;
-        align-items: center;
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
       }
 
-      .popup img {
-        max-width: 80%;
-        max-height: 80%;
+      .pitch-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 2rem;
       }
 
-      .popup .close {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        font-size: 30px;
-        font-weight: bold;
-        color: #ffffff;
-        cursor: pointer;
+      .pitch {
+        background-color: #fff;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+        width: 30%;
       }
+
+      .pitch h2 {
+        font-family: 'Shadows Into Light', sans-serif;
+        font-size: 28px;
+        color: #424555;
+        margin-bottom: 1rem;
+      }
+
+      .pitch p {
+        font-size: 16px;
+        color: #424555;
+        line-height: 1.5;
+      }
+
     </style>
-    <script>
-      $(document).ready(function () {
-        $(".thumbnail").click(function () {
-          let imgSrc = $(this).find("img").attr("src");
-          $(".popup img").attr("src", imgSrc);
-          $(".popup").fadeIn();
-        });
-
-        $(".popup .close, .popup").click(function () {
-          $(".popup").fadeOut();
-        });
-
-        $(".popup img").click(function (event) {
-          event.stopPropagation();
-        });
-      });
-    </script>
   </head>
   <body>
-    <div class="banner" style="background-image: url('banner.jpg');">
-      <h1>AI Generated Art</h1>
+    <div class="banner" style="background-image: url('https://drive.google.com/uc?export=view&id=1MaOuM55g1WFUAjiZd9a8hWY5k9N0_lPp');">
+      <div class="text">My AI Generated Art</div>
     </div>
-    <div class="thumbnails">
-      <!-- Add your thumbnail images and titles here -->
-      <div class="thumbnail">
-        <img src="https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a" alt="AI Art 1" />
-        <div class="overlay">
-          <h3>AI Art 1</h3>
-        </div>
+    <div class="pitch-container">
+      <div class="pitch">
+        <h2>Discover Unique Art</h2>
+        <p>Browse through a diverse collection of AI-generated artworks. Each piece is unique, created by powerful algorithms that learn from various art styles and genres.</p>
       </div>
-      <!-- Repeat the above div for each thumbnail -->
-    <div class="popup">
-      <img src="" alt="AI Art" />
-      <span class="close">&times;</span>
+      <div class="pitch">
+        <h2>Support Artists</h2>
+        <p>By purchasing AI-generated art, you're supporting the talented developers and artists who've collaborated on these projects. Contribute to the growth of this new and exciting medium.</p>
+      </div>
     </div>
-            
+  </body>
+</html>
+              
     
 <script>
   // Function to load the banner image
