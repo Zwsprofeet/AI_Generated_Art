@@ -3,262 +3,191 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap"
-      rel="stylesheet"
-    />
-    <title>My AI Generated Art</title>
     <style>
       body {
-        font-family: 'Arial', sans-serif;
         margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+        font-family: Arial, sans-serif;
       }
 
       .banner {
-        position: relative;
-        width: 100%;
-        height: 80vh;
+        height: 300px;
         background-size: cover;
-        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .text {
-        position: absolute;
-        left: 50%;
-        top: 75%;
-        transform: translateY(-50%);
-        animation: fadeIn 2s ease-in-out forwards;
-      }
-
-      @keyframes fadeIn {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
+        text-align: center;
+        color: white;
       }
 
       .pitch-container {
         display: flex;
-        flex-direction: row;
         justify-content: space-around;
-        padding: 2rem;
+        padding: 20px;
       }
 
       .pitch {
-        background-color: #fff;
-        padding: 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
-        width: 30%;
-      }
-
-      .pitch h2 {
-        font-family: 'Shadows Into Light', sans-serif;
-        font-size: 28px;
-        color: #424555;
-        margin-bottom: 1rem;
-      }
-
-      .pitch p {
-        font-size: 16px;
-        color: #424555;
-        line-height: 1.5;
+        width: 300px;
+        text-align: center;
       }
 
       .gallery {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        padding: 2rem;
       }
 
       .gallery-item {
         position: relative;
-        margin: 1rem;
-        width: calc(33.333% - 2rem);
-        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+        margin: 10px;
+        cursor: pointer;
       }
 
       .gallery-item img {
-        width: 100%;
+        max-width: 200px;
         height: auto;
-        display: block;
       }
 
-      .gallery-item .overlay {
+      .overlay {
         position: absolute;
-        top: 0;
+        bottom: 0;
         left: 0;
-        width: 100%;
-        height: 100%;
+        right: 0;
         background-color: rgba(0, 0, 0, 0.5);
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
+        overflow: hidden;
+        width: 100%;
+        height: 0;
+        transition: 0.5s ease;
       }
 
       .gallery-item:hover .overlay {
-        opacity: 1;
+        height: 100%;
       }
 
       .overlay p {
+        color: white;
+        font-size: 20px;
         position: absolute;
-        left: 50%;
         top: 50%;
+        left: 50%;
         transform: translate(-50%, -50%);
-        font-family: 'Shadows Into Light', sans-serif;
-        font-size: 28px;
-        color: #ffffff;
+        -ms-transform: translate(-50%, -50%);
         text-align: center;
       }
+
+      /* Modal styles */
+      .modal {
+        display: block;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+
+      .modal-content {
+        position: relative;
+        margin: 10% auto;
+        padding: 20px;
+        width: 80%;
+        max-width: 700px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+
+      .modal-content img {
+        width: 100%;
+        height: auto;
+      }
+
+      .close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: #aaa;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
     </style>
+    <title>AI Generated Art Gallery</title>
   </head>
   <body>
-    <div class="banner" style="background-image: url('https://drive.google.com/uc?export=view&id=1MaOuM55g1WFUAjiZd9a8hWY5k9N0_lPp
-');">
-      <div class="text">
-        <h1>Welcome to My AI Generated Art Gallery</h1>
-      </div>
+    <div
+      class="banner"
+      style="background-image: url('https://drive.google.com/uc?export=view&id=1yf0F_kxHx7wvQQpUcV1BpO6NrsK1JfN6');"    >
+      <h1 class="text">AI Generated Art Gallery</h1>
     </div>
 
     <div class="pitch-container">
       <div class="pitch">
-        <h2>Discover</h2>
+        <h2>Discover Unique Art</h2>
         <p>
-          Explore a wide range of AI-generated artwork that pushes the
-          boundaries of creativity and innovation.
+          Explore the fascinating world of AI-generated art and discover pieces
+          that push the boundaries of creativity.
         </p>
       </div>
       <div class="pitch">
-        <h2>Create</h2>
+        <h2>Support Artists</h2>
         <p>
-          Use our tools to create your own AI-generated art and share it with
-          the world.
+          By purchasing a piece, you're supporting the artists and engineers who
+          dedicate their time and skills to creating these amazing works of art.
         </p>
       </div>
     </div>
 
-    <div class="gallery">
-      <div class="gallery-item">
-        <img
-          src="https://drive.google.com/uc?export=view&id=1MaOuM55g1WFUAjiZd9a8hWY5k9N0_lPp"
-          alt="AI Generated Art"
-        />
+    <div class="gallery" id="gallery">
+      <div class="gallery-item" data-image="image1.jpg">
+        <img src="image1_thumbnail.jpg" />
         <div class="overlay">
-          <p>Artwork 1</p>
+          <p>Click to view</p>
         </div>
       </div>
       <!-- Add more gallery items here -->
     </div>
 
+    <!-- Modal -->
+    <div id="myModal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <img src="" id="modalImage" />
+      </div>
+    </div>
+
     <script>
-      document.querySelector('.gallery-item').addEventListener('click', () => {
-        window.open(
-          'https://drive.google.com/uc?export=view&id=1MaOuM55g1WFUAjiZd9a8hWY5k9N0_lPp',
-          '_blank'
+      document
+        .querySelectorAll(".gallery-item")
+        .forEach((item) =>
+          item.addEventListener("click", function () {
+            const modal = document.getElementById("myModal");
+            const modalImage = document.getElementById("modalImage");
+
+            const imgSrc = item.getAttribute("data-image");
+            modalImage.src = imgSrc;
+
+            modal.style.display = "block";
+          })
         );
-      });
+
+      document
+        .getElementsByClassName("close")[0]
+        .addEventListener("click", function () {
+          const modal = document.getElementById("myModal");
+          modal.style.display = "none";
+        });
     </script>
   </body>
 </html>
 
-    
-<script>
-  // Function to load the banner image
-  function loadBannerImage() {
-    const bannerImage = new Image();
-    bannerImage.src = 'https://drive.google.com/uc?export=view&id=1MaOuM55g1WFUAjiZd9a8hWY5k9N0_lPp';
-    bannerImage.onload = function () {
-      document.getElementById('banner-img').src = this.src;
-      document.getElementById('banner-img').style.display = 'block';
-    };
-  }
-
-  // Function to load the thumbnail images
-  function loadThumbnailImages() {
-    const thumbnailImages = document.querySelectorAll('.image-link');
-
-    thumbnailImages.forEach((thumbnailImage) => {
-      const img = new Image();
-      img.src = thumbnailImage.getAttribute('data-src');
-      img.onload = function () {
-        thumbnailImage.src = this.src;
-      };
-    });
-  }
-
- function showModal(imageURL, imageText) {
-  const modal = document.getElementById("myModal");
-  const modalImg = document.getElementById("img01");
-  const captionText = document.getElementById("caption");
-
-  modal.style.display = "block";
-  modalImg.src = imageURL;
-  captionText.innerHTML = imageText;
-
-  const span = document.getElementsByClassName("close")[0];
-  span.onclick = function () {
-    modal.style.display = "none";
-  };
-
-  function setBannerText() {
-    const desktopText = 'AI Generated Art';
-    const mobileText = 'AI Generated Art';
-    const desktopTextElement = document.getElementById('desktop-text');
-    const mobileTextElement = document.getElementById('mobile-text');
-
-    if (window.matchMedia('(min-width: 768px)').matches) {
-      desktopTextElement.textContent = desktopText;
-      desktopTextElement.style.display = 'block';
-      mobileTextElement.style.display = 'none';
-    } else {
-      mobileTextElement.textContent = mobileText;
-      mobileTextElement.style.display = 'block';
-      desktopTextElement.style.display = 'none';
-    }
-  }
-
-  // Call setBannerText, loadBannerImage, and loadThumbnailImages on load, and setBannerText when the window is resized
-  window.addEventListener('load', function() {
-    setBannerText();
-    loadBannerImage();
-    loadThumbnailImages();
-  });
-  window.addEventListener('resize', setBannerText);
-
-  // Add click event listener for the thumbnail images
-  $('.image-link').on('click', function() {
-  const imageURL = $(this).data('image-url');
-  const imageText = $(this).data('text');
-  showModal(imageURL, imageText);
-});
- function showPopup(imageUrl, text) {
-  document.getElementById("popup-image").src = imageUrl;
-  document.getElementById("popup-text").innerHTML = text;
-  document.getElementById("popup").style.display = "block";
-}
-
-  function hidePopup() {
-    document.getElementById("popup").style.display = "none";
-  }
-
-  // Attach click event listeners to the thumbnail images
-  document.querySelectorAll(".image-link").forEach((image) => {
-    image.addEventListener("click", (event) => {
-      event.preventDefault();
-      const imageUrl = event.target.dataset.image_url;
-      const text = event.target.dataset.text;
-      showPopup(imageUrl, text);
-    });
-  });
-
-  // Close the popup when clicking outside of it
-  window.addEventListener("click", (event) => {
-    if (event.target === document.getElementById("popup")) {
-      hidePopup();
-    }
-  });
-  </script>
