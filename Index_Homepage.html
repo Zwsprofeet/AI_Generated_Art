@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Homepage</title>
+    <style>
+      body {
+        font-family: "Shadows Into Light", sans-serif;
+        background-color: #424555;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      .homepage-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .thumbnail {
+        width: 200px;
+        height: 200px;
+        background-size: cover;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .thumbnail:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .thumbnail p {
+        color: white;
+        font-size: 24px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="homepage-container">
+      <a href="art_gallery.html">
+        <div
+          class="thumbnail"
+          style="background-image: url('https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a');"
+        >
+          <p>AI Art Gallery</p>
+        </div>
+      </a>
+      <!-- Add more thumbnails with links to other pages -->
+    </div>
+  </body>
+</html>
