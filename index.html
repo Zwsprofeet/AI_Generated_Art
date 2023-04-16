@@ -296,12 +296,12 @@ As the hovercrafts settled onto the planet's surface, the air crackled with an o
     });
   }
 
- function openImageInNewTab(url, text) {
-  const newWindow = window.open('', '_blank');
-  newWindow.document.write('<!DOCTYPE html><html><head><title>AI Generated Art</title><style>body { margin: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; background-color: black; } .image-text { color: white; font-size: 24px; font-weight: bold; text-align: center; padding: 20px; }</style></head><body><img src="' + url + '" alt="AI Generated Art" style="max-width: 100%; max-height: 80%;"><div class="image-text">' + text + '</div></body></html>');
-  newWindow.document.close();
-  newWindow.opener = null;
-}
+  function openImageInNewTab(url, text) {
+    const newWindow = window.open('', '_blank');
+    newWindow.document.write('<!DOCTYPE html><html><head><title>AI Generated Art</title><style>body { margin: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; background-color: black; } .image-text { color: white; font-size: 24px; font-weight: bold; text-align: center; padding: 20px; }</style></head><body><img src="' + url + '" alt="AI Generated Art" style="max-width: 100%; max-height: 80%;"><div class="image-text">' + text + '</div></body></html>');
+    newWindow.document.close();
+    newWindow.opener = null;
+  }
 
   function setBannerText() {
     const desktopText = 'AI Generated Art';
@@ -330,15 +330,16 @@ As the hovercrafts settled onto the planet's surface, the air crackled with an o
 
   // Add click event listener for the thumbnail images
   $('.image-link').on('click', function() {
-  const imageURL = $(this).data('image-url');
-  const imageText = $(this).data('text');
-  openImageInNewTab(imageURL, imageText);
-});
- function showPopup(imageUrl, text) {
-  document.getElementById("popup-image").src = imageUrl;
-  document.getElementById("popup-text").innerHTML = text;
-  document.getElementById("popup").style.display = "block";
-}
+    const imageURL = $(this).data('image-url');
+    const imageText = $(this).data('text');
+    openImageInNewTab(imageURL, imageText);
+  });
+
+  function showPopup(imageUrl, text) {
+    document.getElementById("popup-image").src = imageUrl;
+    document.getElementById("popup-text").innerHTML = text;
+    document.getElementById("popup").style.display = "block";
+  }
 
   function hidePopup() {
     document.getElementById("popup").style.display = "none";
@@ -346,7 +347,7 @@ As the hovercrafts settled onto the planet's surface, the air crackled with an o
 
   // Attach click event listeners to the thumbnail images
   document.querySelectorAll(".image-link").forEach((image) => {
-    image.addEventListener("click", (event) => {
+    image.addEventListener("image.addEventListener("click", (event) => {
       event.preventDefault();
       const imageUrl = event.target.dataset.image_url;
       const text = event.target.dataset.text;
@@ -359,11 +360,5 @@ As the hovercrafts settled onto the planet's surface, the air crackled with an o
     if (event.target === document.getElementById("popup")) {
       hidePopup();
     }
-    
-    function showPopup(imageUrl, text) {
-  document.getElementById("popup-image").src = imageUrl;
-  document.getElementById("popup-text").innerHTML = text;
-  document.getElementById("popup").style.display = "block";
-}
   });
-  </script>
+</script>
