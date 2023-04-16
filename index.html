@@ -84,11 +84,17 @@
   .pitch p {
     display: inline-block;
     padding: 10px;
-    background: rgba(27, 33, 41, 0.7); /* Add a semi-transparent background behind the pitch text */
-    border-radius: 5px; /* Add rounded corners to the background */
-    max-width: 90%; /* Add a max-width */
-    color: #b6babf; /* Change the text color (Replace #FFFFFF with your desired color code) */
-  }
+    background: rgba(27, 33, 41, 0.7);
+    border-radius: 5px;
+    max-width: 90%;
+    color: #FFFFFF;
+}
+
+/* Add a new class for the first pitch paragraph */
+.pitch .first-paragraph {
+    font-size: 1.5em; /* Increase the text size (Adjust the value as needed) */
+    max-width: 100%; /* Set the max-width to fill the entire website's width */
+}
 
   /* Add the media query for the pitch */
   @media screen and (min-width: 768px) {
