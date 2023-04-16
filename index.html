@@ -1,44 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
-    <title>My AI Generated Art Website</title>
-    <!-- Add Open Graph meta tags -->
-    <meta property="og:title" content="AI Generated Art">
-    <meta property="og:description" content="Explore the world of AI-generated art created by cutting-edge algorithms.">
-    <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1MaOuM55g1WFUAjiZd9a8hWY5k9N0_lPp">
-    <meta property="og:url" content="https://zwsprofeet.github.io/ai_generated_art/">
-    <meta property="og:type" content="website">
-    <!-- Add styles and script for the thumbnail -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Shadows+Into+Light&display=swap"
+      rel="stylesheet"
+    />
+    <title>My AI Generated Art</title>
     <style>
-      /* Add the background pattern to the body */
       body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #424555;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%235c5a60' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-      
+
       .banner {
-        height: 400px;
+        position: relative;
+        width: 100%;
+        height: 80vh;
         background-size: cover;
         background-position: center;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        max-width: 100%;
-        max-height: 100%;
-        position: relative;
       }
 
       .text {
-        font-family: 'Shadows Into Light', sans-serif; /* Added font-family */
-        font-size: 36px;
-        color: #dfe9eb;
-        opacity: 0;
         position: absolute;
-        left: 74%;
+        left: 50%;
         top: 75%;
         transform: translateY(-50%);
         animation: fadeIn 2s ease-in-out forwards;
@@ -81,25 +69,102 @@
         line-height: 1.5;
       }
 
+      .gallery {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 2rem;
+      }
+
+      .gallery-item {
+        position: relative;
+        margin: 1rem;
+        width: calc(33.333% - 2rem);
+        box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .gallery-item .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+      }
+
+      .gallery-item:hover .overlay {
+        opacity: 1;
+      }
+
+      .overlay p {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        font-family: 'Shadows Into Light', sans-serif;
+        font-size: 28px;
+        color: #ffffff;
+        text-align: center;
+      }
     </style>
   </head>
   <body>
-    <div class="banner" style="background-image: url('https://drive.google.com/uc?export=view&id=1MaOuM55g1WFUAjiZd9a8hWY5k9N0_lPp');">
-      <div class="text">My AI Generated Art</div>
+    <div class="banner" style="background-image: url('https://drive.google.com/uc?export=view&id=1MaOuM55g1WFUAjiZd9a8hWY5k9N0_lPp
+');">
+      <div class="text">
+        <h1>Welcome to My AI Generated Art Gallery</h1>
+      </div>
     </div>
+
     <div class="pitch-container">
       <div class="pitch">
-        <h2>Discover Unique Art</h2>
-        <p>Browse through a diverse collection of AI-generated artworks. Each piece is unique, created by powerful algorithms that learn from various art styles and genres.</p>
+        <h2>Discover</h2>
+        <p>
+          Explore a wide range of AI-generated artwork that pushes the
+          boundaries of creativity and innovation.
+        </p>
       </div>
       <div class="pitch">
-        <h2>Support Artists</h2>
-        <p>By purchasing AI-generated art, you're supporting the talented developers and artists who've collaborated on these projects. Contribute to the growth of this new and exciting medium.</p>
+        <h2>Create</h2>
+        <p>
+          Use our tools to create your own AI-generated art and share it with
+          the world.
+        </p>
       </div>
     </div>
+
+    <div class="gallery">
+      <div class="gallery-item">
+        <img
+          src="https://drive.google.com/uc?export=view&id=1MaOuM55g1WFUAjiZd9a8hWY5k9N0_lPp"
+          alt="AI Generated Art"
+        />
+        <div class="overlay">
+          <p>Artwork 1</p>
+        </div>
+      </div>
+      <!-- Add more gallery items here -->
+    </div>
+
+    <script>
+      document.querySelector('.gallery-item').addEventListener('click', () => {
+        window.open(
+          'https://drive.google.com/uc?export=view&id=1MaOuM55g1WFUAjiZd9a8hWY5k9N0_lPp',
+          '_blank'
+        );
+      });
+    </script>
   </body>
 </html>
-              
+
     
 <script>
   // Function to load the banner image
