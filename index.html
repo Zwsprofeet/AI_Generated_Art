@@ -159,7 +159,7 @@
     </div>
 
     <div class="gallery" id="gallery">
-      <div class="gallery-item" data-image="https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a">
+      <div class="gallery-item" data-image="https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a"> data-text="Humanity stood at the brink of extinction as they fought their last stance chaotic battle against the alien invaders. The sky was filled with alien spacecrafts, firing deadly lasers and dropping bombs on the crumbling cities below. The ground shook with every explosion, and screams of the dying echoed through the streets. The human resistance fought valiantly, using advanced weapons and technology, but it was not enough. The aliens were too powerful, too advanced. As the last human stronghold fell, a small group of survivors banded together, determined to continue the fight. For they knew, even in defeat, humanity would never surrender." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a"">
         <img src="https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a" />
         <div class="overlay">
           <p>Click to view</p>
@@ -167,7 +167,7 @@
       </div>
       <!-- Add more gallery items here -->
        <div class="gallery" id="gallery">
-      <div class="gallery-item" data-image="https://drive.google.com/uc?export=view&id=174EJwtDEASx6uj5J-CQKto8INj1RgWoZ">
+      <div class="gallery-item" data-image="https://drive.google.com/uc?export=view&id=174EJwtDEASx6uj5J-CQKto8INj1RgWoZ"> data-text="Humanity was on the brink of annihilation as they scrambled their last force of advanced battle gear into the fight against the alien invaders. The soldiers strapped themselves into their sleek exoskeletons and powered up their energy weapons. They knew this could be their final battle. The aliens had already destroyed most of the world's major cities and were closing in on their last stronghold. As the soldiers marched into battle, they knew the odds were against them. But they fought with all their might, determined to protect their home and families. It was a brutal and fierce fight, but in the end, humanity emerged victorious, driving the alien invaders back into space." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=174EJwtDEASx6uj5J-CQKto8INj1RgWoZ">
         <img src="https://drive.google.com/uc?export=view&id=174EJwtDEASx6uj5J-CQKto8INj1RgWoZ" />
         <div class="overlay">
           <p>Click to view</p>
@@ -176,12 +176,13 @@
     </div>
 
     <!-- Modal -->
-    <div id="myModal" class="modal" style="display: none;">
+    <<div id="myModal" class="modal" style="display: none;">
       <div class="modal-content">
-        <span class="close">&times;</span>
-        <img src="" id="modalImage" />
-      </div>
-    </div>
+      <span class="close">&times;</span>
+      <img src="" id="modalImage" />
+      <p id="modalText"></p>
+  </div>
+
 
     <script>
       document
@@ -198,12 +199,22 @@
           })
         );
 
-      document
-        .getElementsByClassName("close")[0]
-        .addEventListener("click", function () {
-          const modal = document.getElementById("myModal");
-          modal.style.display = "none";
-        });
+     document
+  .querySelectorAll(".gallery-item")
+  .forEach((item) =>
+    item.addEventListener("click", function () {
+      const modal = document.getElementById("myModal");
+      const modalImage = document.getElementById("modalImage");
+      const modalText = document.getElementById("modalText");
+
+      const imgSrc = item.getAttribute("data-image");
+      const text = item.getAttribute("data-text");
+      modalImage.src = imgSrc;
+      modalText.textContent = text;
+
+      modal.style.display = "block";
+    })
+  );
     </script>
   </body>
 </html>
