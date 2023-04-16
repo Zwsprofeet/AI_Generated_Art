@@ -13,25 +13,18 @@
         background-color: #424555;
         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%235c5a60' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
       }
-    </style>
-    <meta property="og:title" content="AI Generated Art">
-    <meta property="og:description" content="Experience the cutting edge of art and witness the beauty of AI generated art for yourself.">
-    <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1MaOuM55g1WFUAjiZd9a8hWY5k9N0_lPp">
-    <meta property="og:url" content="https://zwsprofeet.github.io/ai_generated_art/">
-    <meta property="og:type" content="website">
-  </head>
-    
-  .banner {
-    height: 400px;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    max-width: 100%;
-    max-height: 100%;
-    position: relative;
-  }
+
+      .banner {
+        height: 400px;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        max-width: 100%;
+        max-height: 100%;
+        position: relative;
+      }
 
       .text {
         font-family: 'Shadows Into Light', sans-serif; /* Added font-family */
@@ -65,16 +58,64 @@
         cursor: pointer;
         width: 100%;
         max-width: 480px;
-        margin: 20px;
+        margin: 24px;
         display: inline-block;
-        vertical-align: top;
+        position: relative;
+        overflow: hidden;
       }
 
-      .thumbnail-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 0 20px; /* Add padding to the sides of the container */
+      .thumbnail {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.3s;
+      }
+
+      .image-link:hover .thumbnail {
+        transform: scale(1.1);
+      }
+
+      .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .image-link:hover .image-overlay {
+        opacity: 1;
+      }
+
+      .overlay-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 24px;
+        text-align: center;
+      }
+
+      @media screen and (min-width: 768px) {
+        .text {
+          display: none;
+        }
+        .desktop-text {
+          display: block;
+        }
+      }
+
+      @media screen and (max-width: 767px) {
+        .text {
+          display: none;
+        }
+        .mobile-text {
+          display: block;
+        }
       }
 
       @keyframes text-fade-in {
@@ -85,66 +126,23 @@
           opacity: 1;
         }
       }
-
-      .pitch {
-    text-align: center; /* Add this line to center the pitch text and its background */
-  }
-
-  .pitch p {
-    display: inline-block;
-    padding: 10px;
-    background: rgba(27, 33, 41, 0.4);
-    border-radius: 5px;
-    max-width: 90%;
-    color: #718285;
-    
-}
-
-/* Add a new class for the first pitch paragraph */
-.pitch .first-paragraph {
-    font-size: 1.3em; /* Increase the text size (Adjust the value as needed) */
-    max-width: 100%; /* Set the max-width to fill the entire website's width */
-   font-family: 'Shadows Into Light', sans-serif; /* Added font-family */
-}
-      /* Add a new class for the second pitch paragraph */
-.pitch .second-paragraph {
-    font-size: 0.7em; /* Change the text size (Adjust the value as needed) */
-}
-
-  /* Add the media query for the pitch */
-  @media screen and (min-width: 768px) {
-    .pitch p {
-      max-width: 60%; /* Adjust the max-width for desktop */
-    }
-   }
-
-  /* Add the media query for the mobile text */
-  @media screen and (max-width: 767px) {
-    .mobile-text {
-      display: block;
-    }
-
-    .image-link {
-      max-width: 100%; /* Set max-width to 100% for mobile */
-     /* Add the new hidden class */
-  .hidden {
-    display: none;
-    }
-</style>
-    
-    <div class="banner">
-      <img id="banner-img" src="" alt="Banner Image" style="display: none; width: 100%; height: 100%; object-fit: cover;">
-      <h1 id="desktop-text" class="text desktop-text"></h1>
-      <h1 id="mobile-text" class="text mobile-text"></h1>
+    </style>
+  </head>
+  <body>
+    <div class="banner" style="background-image: url('your-banner-image-url.jpg');">
+      <span class="text desktop-text">My AI Generated Art</span>
+      <span class="text mobile-text">My AI Art</span>
     </div>
-
-    <!-- Add the pitch text below the banner -->
-    <div class="pitch">
-      <p class="first-paragraph">Are you a fan of art? What if you could experience something completely unique and unlike anything you've ever seen before? Introducing AI generated art - an entirely new approach to creating beautiful and thought-provoking artwork.</p>
-      <!-- Add the new class 'second-paragraph' to the second pitch paragraph -->
-      <p class="second-paragraph">Our website is dedicated to showcasing some of the most stunning pieces generated by artificial intelligence. Every piece is unique, created by algorithms that learn from millions of examples to generate something entirely new. Experience the cutting edge of art and witness the beauty of AI generated art for yourself.</p>
-    </div>
-
+    <div class="gallery">
+      <!-- Add image thumbnails with overlay -->
+      <a class="image-link" href="your-image-url-1.jpg">
+        <img class="thumbnail" src="your-thumbnail-url-1.jpg" alt="AI Art 1">
+        <div class="image-overlay">
+          <span class="overlay-text">AI Art 1</span>
+        </div>
+ 
+      
+          
     <div class="thumbnail-container">
        <!-- Add the first thumbnail image -->
       <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a" data-text="Humanity stood at the brink of extinction as they fought their last stance chaotic battle against the alien invaders. The sky was filled with alien spacecrafts, firing deadly lasers and dropping bombs on the crumbling cities below. The ground shook with every explosion, and screams of the dying echoed through the streets. The human resistance fought valiantly, using advanced weapons and technology, but it was not enough. The aliens were too powerful, too advanced. As the last human stronghold fell, a small group of survivors banded together, determined to continue the fight. For they knew, even in defeat, humanity would never surrender." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a">
