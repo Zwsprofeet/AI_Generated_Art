@@ -51,9 +51,8 @@
       }
 
       .gallery-item {
-         position: center;
          margin: 10px;
-         cursor: pointer;
+         cursor: default;
          width: calc(90% - 20px); /* Adjust the width to 33.33% minus the margin */
          box-sizing: border-box; /* Add this to include padding and border in the total width */
       }
@@ -61,6 +60,7 @@
       .gallery-item img {
          width: 100%; /* Change this to 100% */
          height: auto;
+         display: none; 
         }
 
       .overlay {
@@ -143,11 +143,12 @@
   <body>
     <div
       class="banner"
-      style="background-image: url('https://drive.google.com/uc?export=view&id=1MaOuM55g1WFUAjiZd9a8hWY5k9N0_lPp');"    >
+      style="background-image: url('https://drive.google.com/uc?export=view&id=1MaOuM55g1WFUAjiZd9a8hWY5k9N0_lPp');"    
+      >
       <h1 class="text">AI Generated Art Gallery</h1>
     </div>
 
-    <div class="pitch-container">
+      <div class="pitch-container">
       <div class="pitch">
         <h2>Discover Unique Art</h2>
         <p>
