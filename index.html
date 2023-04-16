@@ -4,330 +4,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <title>My AI Generated Art Website</title>
-        <!-- Add Open Graph meta tags -->
+    <!-- Add Open Graph meta tags -->
     <meta property="og:title" content="AI Generated Art">
     <meta property="og:description" content="Explore the world of AI-generated art created by cutting-edge algorithms.">
     <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1MaOuM55g1WFUAjiZd9a8hWY5k9N0_lPp">
     <meta property="og:url" content="https://zwsprofeet.github.io/ai_generated_art/">
     <meta property="og:type" content="website">
-        <!-- Add styles and script for the thumbnail -->
+    <!-- Add styles and script for the thumbnail -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <style>
+    <style>
       /* Add the background pattern to the body */
-     body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #424555;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%235c5a60' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-
-    <div id="popup" class="popup">
-    <p id="popup-text">Your popup text here.</p>
-</div>
-          }          
-
-  .banner {
-    height: 400px;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    max-width: 100%;
-    max-height: 100%;
-    position: relative;
-  }
-
-      .text {
-        font-family: 'Shadows Into Light', sans-serif; /* Added font-family */
-        font-size: 36px;
-        color: #dfe9eb;
-        opacity: 0;
-        position: absolute;
-        left: 74%;
-        top: 20%;
-        transform: translateX(-50%);
-        animation: text-fade-in 6s forwards 0.8s;
+      body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #424555;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='hexagons' fill='%235c5a60' fill-opacity='0.4' fill-rule='nonzero'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
       }
 
-      .desktop-text {
-        display: none;
-        left: 10%;
-        top: 33%;
-        transform: translateX(-50%);
-        font-size: 48px;
-      }
-      .mobile-text {
-        display: none;
-        left: 24%;
-        top: 15%;
-        transform: translateX(-50%);
-        font-size: 28px;
-      }
-
-      /* Add styles for the thumbnail */
-      .image-link {
-        cursor: pointer;
-        width: 100%;
-        max-width: 480px;
-        margin: 20px;
-        display: inline-block;
-        vertical-align: top;
-      }
-
-      .thumbnail-container {
+      .banner {
+        height: 400px;
+        background-size: cover;
+        background-position: center;
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
-        padding: 0 20px; /* Add padding to the sides of the container */
+        align-items: flex-end;
+        max-width: 100%;
+       
+        padding-bottom: 30px;
       }
-          
+
+      .banner h1 {
+        font-size: 50px;
+        font-family: 'Shadows Into Light', cursive;
+        color: #ffffff;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+      }
+
+      .thumbnails {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .thumbnail {
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .thumbnail img {
+        width: 100%;
+        height: auto;
+        transition: transform 0.5s;
+      }
+
+      .thumbnail:hover img {
+        transform: scale(1.1);
+      }
+
+      .thumbnail .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: opacity 0.5s;
+      }
+
+      .thumbnail:hover .overlay {
+        opacity: 1;
+      }
+
+      .thumbnail h3 {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        font-size: 24px;
+        font-family: 'Shadows Into Light', cursive;
+        color: #ffffff;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+      }
+
       .popup {
         display: none;
         position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(0, 0, 0, 0.8);
-        color: #718285;
-        padding: 14px;
-        border-radius: 8px;
-        font-family: 'Roboto', sans-serif;
-        font-size: 18px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
         z-index: 1000;
-}
-
-
-      @keyframes text-fade-in {
-        0% {
-          opacity: 0;
-        }
-        100% {
-          opacity: 1;
-        }
+        justify-content: center;
+        align-items: center;
       }
 
-      .pitch {
-    text-align: center; /* Add this line to center the pitch text and its background */
-  }
+      .popup img {
+        max-width: 80%;
+        max-height: 80%;
+      }
 
-  .pitch p {
-    display: inline-block;
-    padding: 10px;
-    background: rgba(27, 33, 41, 0.4);
-    border-radius: 5px;
-    max-width: 90%;
-    color: #718285;
-    
-}
+      .popup .close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+        font-weight: bold;
+        color: #ffffff;
+        cursor: pointer;
+      }
+    </style>
+    <script>
+      $(document).ready(function () {
+        $(".thumbnail").click(function () {
+          let imgSrc = $(this).find("img").attr("src");
+          $(".popup img").attr("src", imgSrc);
+          $(".popup").fadeIn();
+        });
 
-/* Add a new class for the first pitch paragraph */
-.pitch .first-paragraph {
-    font-size: 1.3em; /* Increase the text size (Adjust the value as needed) */
-    max-width: 100%; /* Set the max-width to fill the entire website's width */
-   font-family: 'Shadows Into Light', sans-serif; /* Added font-family */
-}
-      /* Add a new class for the second pitch paragraph */
-.pitch .second-paragraph {
-    font-size: 1em; /* Change the text size (Adjust the value as needed) */
-}
+        $(".popup .close, .popup").click(function () {
+          $(".popup").fadeOut();
+        });
 
-  /* Add the media query for the pitch */
-  @media screen and (min-width: 768px) {
-    .pitch p {
-      max-width: 60%; /* Adjust the max-width for desktop */
-    }
-   }
-
-  /* Add the media query for the mobile text */
-  @media screen and (max-width: 767px) {
-    .mobile-text {
-      display: block;
-    }
-
-    .image-link {
-      max-width: 100%; /* Set max-width to 100% for mobile */
-     /* Add the new hidden class */
-  .hidden {
-    display: none;
-    }
-      
-      /* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-}
-
-/* Modal Content (image) */
-.modal-content {
-  margin: auto;
-  display: block;
-  max-width: 100%;
-  max-height: 80%;
-}
-
-/* Add Animation */
-.modal-content {
-  -webkit-animation-name: zoom;
-  -webkit-animation-duration: 0.6s;
-  animation-name: zoom;
-  animation-duration: 0.6s;
-}
-
-@-webkit-keyframes zoom {
-  from {-webkit-transform:scale(0)}
-  to {-webkit-transform:scale(1)}
-}
-
-@keyframes zoom {
-  from {transform:scale(0)}
-  to {transform:scale(1)}
-}
-
-/* The Close Button */
-.close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.close:hover,
-.close:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.image-text {
-  color: grey;
-  font-size: 16px;
-  font-weight: bold;
-  font-family: 'Shadows Into Light', sans-serif;
-  text-align: center;
-  padding: 20px;
-}
-</style>
-    
-    <div class="banner">
-      <img id="banner-img" src="" alt="Banner Image" style="display: none; width: 100%; height: 100%; object-fit: cover;">
-      <h1 id="desktop-text" class="text desktop-text"></h1>
-      <h1 id="mobile-text" class="text mobile-text"></h1>
+        $(".popup img").click(function (event) {
+          event.stopPropagation();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="banner" style="background-image: url('banner.jpg');">
+      <h1>AI Generated Art</h1>
     </div>
-
-    <!-- Add the pitch text below the banner -->
-    <div class="pitch">
-      <p class="first-paragraph">Are you a fan of art? What if you could experience something completely unique and unlike anything you've ever seen before? Introducing AI generated art - an entirely new approach to creating beautiful and thought-provoking artwork.</p>
-      <!-- Add the new class 'second-paragraph' to the second pitch paragraph -->
-      <p class="second-paragraph">Unleash the full story behind your favorite AI-generated art piece! Simply click on the thumbnail that grabs your attention the most and immerse yourself in its mesmerizing context.</p>
+    <div class="thumbnails">
+      <!-- Add your thumbnail images and titles here -->
+      <div class="thumbnail">
+        <img src="https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a" alt="AI Art 1" />
+        <div class="overlay">
+          <h3>AI Art 1</h3>
+        </div>
+      </div>
+      <!-- Repeat the above div for each thumbnail -->
+    <div class="popup">
+      <img src="" alt="AI Art" />
+      <span class="close">&times;</span>
     </div>
-
-    <div class="thumbnail-container">
-       <!-- Add the first thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a" data-text="Humanity stood at the brink of extinction as they fought their last stance chaotic battle against the alien invaders. The sky was filled with alien spacecrafts, firing deadly lasers and dropping bombs on the crumbling cities below. The ground shook with every explosion, and screams of the dying echoed through the streets. The human resistance fought valiantly, using advanced weapons and technology, but it was not enough. The aliens were too powerful, too advanced. As the last human stronghold fell, a small group of survivors banded together, determined to continue the fight. For they knew, even in defeat, humanity would never surrender." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a">
-
-      <!-- Add the second thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=174EJwtDEASx6uj5J-CQKto8INj1RgWoZ" data-text="Humanity was on the brink of annihilation as they scrambled their last force of advanced battle gear into the fight against the alien invaders. The soldiers strapped themselves into their sleek exoskeletons and powered up their energy weapons. They knew this could be their final battle. The aliens had already destroyed most of the world's major cities and were closing in on their last stronghold. As the soldiers marched into battle, they knew the odds were against them. But they fought with all their might, determined to protect their home and families. It was a brutal and fierce fight, but in the end, humanity emerged victorious, driving the alien invaders back into space." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=174EJwtDEASx6uj5J-CQKto8INj1RgWoZ">
-
-      <!-- Add the third thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1XFJNXha2X5L0RGrTWKWvxoemN5pJu06v" data-text="As humanity faced an imminent threat from an invading force, battle droids were called into action to aid them. These autonomous robots were programmed with advanced weaponry and tactical strategies to defend against the enemy. As they marched onto the battlefield, the ground shook under their weight. The droids worked seamlessly with the human soldiers, providing cover fire and engaging in close combat with the enemy. Despite the odds stacked against them, the combined forces managed to push back the invading army. The battle was intense, but humanity had prevailed, thanks in part to the assistance of their mechanical allies." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1XFJNXha2X5L0RGrTWKWvxoemN5pJu06v">
-
-      <!-- Add the fourth thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=15q4VVAOHLEGWokTlduaLNmQTMWs9QHVe" data-text="Invading forces closed in on the city, humanity deployed their last hope: the battle droids. These machines had been designed for one purpose only, to defend against the enemy. As they marched towards the battle, their metal feet thudding on the ground, the humans watched with bated breath.
-The battle was brutal, with explosions and gunfire tearing through the air. But the battle droids fought with unwavering determination, their energy weapons blazing as they took down enemy after enemy. The humans followed their lead, inspired by the bravery of their mechanical allies.
-In the end, the battle was won, and the city was saved. The battle droids had proved their worth, defending humanity with their lives." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=15q4VVAOHLEGWokTlduaLNmQTMWs9QHVe">
-
-      <!-- Add the fifth thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1EkKxTzuvSqi_3M2MCmCgNWV5vmdWhf55" data-text="As the alien ships descended from the sky, humanity looked to their last hope: the battle droids. The machines marched onto the battlefield, their energy weapons humming as they engaged the enemy. The aliens had advanced technology, but the battle droids were faster, smarter, and more determined.
-The battle raged on for hours, with explosions and laser fire lighting up the night sky. But the battle droids held their ground, their metal frames unyielding against the alien onslaught. They fought with a relentless efficiency, taking down alien after alien until the threat was eliminated.
-In the end, humanity emerged victorious, thanks to the bravery and skill of the battle droids. The machines had proven themselves to be more than just robots; they were the defenders of humanity, the guardians of a better future." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1EkKxTzuvSqi_3M2MCmCgNWV5vmdWhf55">
-
-      <!-- Add the sixth thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1fwErKNXGt4hMuegRxR11VOCOrhfcFLze" data-text="The invading spacecraft hovered menacingly over the city, firing destructive beams of energy at the helpless citizens below. But humanity had a secret weapon: battle droids. The machines launched a fierce attack on the ship, blasting it with their energy weapons until it exploded in a burst of fire and debris.
-But the battle was not yet won. The aliens had survived the crash and emerged from the wreckage, determined to finish what they had started. The battle droids charged towards the alien invaders, their weapons blazing as they engaged the enemy in close combat.
-In a display of ferocity and skill, the battle droids destroyed the alien threat and saved the city from certain doom. The machines had proven that they were more than just weapons; they were the protectors of humanity, the saviors of a world under siege." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1fwErKNXGt4hMuegRxR11VOCOrhfcFLze">
-    
-           <!-- Add the seventh thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1yLI8PY3LPGD3vEfdtTONu1VYvZiUD_-c" data-text="The alien city on the distant planet was a marvel to behold. Its towering spires and glowing buildings were like nothing seen on Earth. As the sun rose over the horizon, the city came to life, with citizens emerging from their homes and going about their daily routines." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1yLI8PY3LPGD3vEfdtTONu1VYvZiUD_-c">
-
-             <!-- Add the eight thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1rRe95O2UieVrG3_AaVRdmK_YJ0JnwNGO" data-text="The downtown of the futuristic human city was a sight to behold. Towering skyscrapers stretched towards the sky, their sleek designs illuminated by the glowing lights of the city. The streets bustled with activity, with hovercars and hoverbikes zooming past each other in a choreographed dance." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1rRe95O2UieVrG3_AaVRdmK_YJ0JnwNGO">
-      
-       <!-- Add the ninethe thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1lQKm__nL_l7aJTY27gw4aBo6XPYW08-j" data-text="As the night fell on the alien city, a new world came to life. The city's inhabitants emerged from their homes and gathered in the glowing streets, moving with a grace that was both alien and beautiful." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1lQKm__nL_l7aJTY27gw4aBo6XPYW08-j">
-
-             <!-- Add the tenth thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1x72x6sclFo5u0lv6v8242xXCAFkcdv4m" data-text="As the human explorers descended beneath the surface of the distant moon, they discovered something that they never could have imagined. Strange creatures, unlike anything seen on Earth, slithered through the caverns and crevices, their glowing eyes watching the humans with an eerie intelligence." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1x72x6sclFo5u0lv6v8242xXCAFkcdv4m">
-
-             <!-- Add the eleventh thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=159kqyu9Z1KEuQVMlepmyl6cyQGIN36mK" data-text="In the far future, a spacecraft hovered silently over a bustling city, its sleek lines and advanced technology a testament to human ingenuity. The ship was unlike anything seen on Earth, with the ability to move effortlessly through space and time." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=159kqyu9Z1KEuQVMlepmyl6cyQGIN36mK">
-
-             <!-- Add the twelveth thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1NDPNglOR78eQ4lXD8Dchrx1U98VfTFdg" data-text="On a distant planet, the sky had a peculiar green hue, unlike anything seen on Earth. The city below was bathed in a gentle emerald light, casting long shadows on the streets and buildings." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1NDPNglOR78eQ4lXD8Dchrx1U98VfTFdg">
-
-       <!-- Add the thirteenth thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1DXji7aIwSfyAOaS-a-xomOYGNXljJExs" data-text="On an Earth-like planet far away, rush hour was a chaotic and frenzied affair. The streets of the city were packed with vehicles of all shapes and sizes. The air was thick with the sound of honking horns and the rumble of engines, as drivers jostled for position on the crowded roads. Pedestrians hurried across the streets, weaving their way through the sea of vehicles, their eyes fixed on their destinations." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1DXji7aIwSfyAOaS-a-xomOYGNXljJExs">
-
-             <!-- Add the fourteenth thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1OFn2AlVNeIX9L4epqwQ9XefzBcC15Dez" data-text="In a secret laboratory deep within a sprawling city, a team of scientists worked tirelessly to create the ultimate androids. The lab was a marvel of advanced technology, with rows of machines and screens lining the walls, and complex algorithms running on servers in the back." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1OFn2AlVNeIX9L4epqwQ9XefzBcC15Dez">
-
-            <!-- Add the fifteenth thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1RpAzzVLpe-_z5dEBYLqr4LQjnibqxOV2" data-text="In another dimension, humans lived in a world that resembled the Victorian era, with bustling streets and ornate buildings. But in this world, strange creatures roamed free, interacting with the humans in a way that was both familiar and alien.
-The creatures were unlike anything seen on Earth, with colorful skin and unusual features that defied description. But they moved with a sense of purpose and grace, their movements fluid and effortless." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1RpAzzVLpe-_z5dEBYLqr4LQjnibqxOV2">
-
-            <!-- Add the sixteenth thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1SZpziWABujSRmB4GJVjJMhO7SfQ51WIJ" data-text="On a distant planet, there was an office center inhabited by human-like aliens. The building was a marvel of advanced technology, with sleek lines and glowing surfaces that hummed with energy.
-Inside, the aliens moved with a sense of purpose and efficiency, their work mirroring that of human offices on Earth. They typed away at computer screens, held meetings in conference rooms, and chatted with colleagues over cups of coffee." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1SZpziWABujSRmB4GJVjJMhO7SfQ51WIJ">
-
-            <!-- Add the seventeenth thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1KiS0QHDYzlGTH_zXt9rEWn1J6Y3Ec3zm" data-text="Despite the advanced technology and futuristic changes in downtown Earth, there was one thing that remained the same: cars. While they had been upgraded and modernized, with sleek designs and advanced safety features, they still remained a staple mode of transportation in the bustling city." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1KiS0QHDYzlGTH_zXt9rEWn1J6Y3Ec3zm">
-
-            <!-- Add the eighteenth thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1KK_iXI1VoJELCcHTc63yxgfB2bGX64Hs" data-text="On a distant planet, a group of aliens worked tirelessly in a factory to create the ultimate androids. The aliens were skilled engineers and programmers, with advanced technology and knowledge that surpassed even the most advanced humans on Earth.
-The factory hummed with activity, with rows of machines and screens lining the walls, and complex algorithms running on servers in the back. The aliens moved with a sense of purpose and precision, carefully crafting the androids' mechanical bodies and programming their advanced artificial intelligence." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1KK_iXI1VoJELCcHTc63yxgfB2bGX64Hs">
-
-            <!-- Add the nineteenth thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1YFx8rZZzHdXdnF2kZatHo2RR-sY1L5s8" data-text="In an other dimension, there existed a world that was too strange and surreal to be explained by human words. The landscape was a jumble of colors and shapes, with strange creatures and structures that defied all logic and understanding.
-The beings that lived in this world were not like anything found on Earth. They moved with a sense of fluidity and grace, their limbs and features shifting and changing with each passing moment. Their language was a complex series of clicks and whistles, a symphony of sound that was both beautiful and otherworldly." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1YFx8rZZzHdXdnF2kZatHo2RR-sY1L5s8">
-      
-      <!-- Add the twentieth thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1fdADCg2Nk3XtmK215J0A3-XHHXk8cCX5" data-text="In the future, there was a factory that provided the ultimate spacecrafts for space exploration. The factory was a marvel of advanced technology, with rows of assembly lines and robotic arms that worked in perfect harmony to craft each spacecraft to perfection.
-As the spacecrafts slowly took shape, the workers watched in awe and admiration. Each spacecraft was a masterpiece of engineering, with sleek lines and advanced propulsion systems that would allow them to travel through the depths of space with ease." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1fdADCg2Nk3XtmK215J0A3-XHHXk8cCX5">
-
-            <!-- Add the twenty-first thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1hMiXg3fXRyrhTzvBRKk7zncK3dZrIe_M" data-text="In a different dimension, there existed a place unlike any other, a place of wondrous and marvelous colors. The air shimmered and glowed with a rainbow of hues, from brilliant pinks and purples to deep blues and greens.
-The landscape was equally breathtaking, with towering mountains that glinted with metallic flecks and valleys that sparkled like jewels. The rivers flowed with liquid silver, reflecting the dazzling colors of the sky above." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1hMiXg3fXRyrhTzvBRKk7zncK3dZrIe_M">
-      
-      <!-- Add the twenty-second thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1jGXaRdZs_oU1SWguzDuKZ_YiP--hdIUk" data-text="On Earth, a new era had dawned. Humanity had made contact with large, friendly alien creatures that had come to be known as the "Giants." These Giants were peaceful beings, with gentle eyes and a sense of grace and wisdom that was unlike anything humanity had ever encountered before.
-
-As the Giants integrated into human society, they brought with them a sense of harmony and balance. They moved with a fluid grace, their massive bodies somehow managing to fit seamlessly into human cities and landscapes." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1jGXaRdZs_oU1SWguzDuKZ_YiP--hdIUk">
-
-            <!-- Add the twenty-third thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1nYWdnwwOKFfadj3klfEzyi87Jhp2G8lb" data-text="On a distant moon, there existed a factory unlike anything that could be found in the human universe. The factory was a labyrinthine structure of twisted metal and jagged edges, with strange machines and equipment that hummed and pulsated with otherworldly energy.
-The workers in the factory were not human. They moved with a sense of fluidity and grace, their limbs and features shifting and changing with each passing moment. They communicated through a series of clicks and whistles that were impossible for human ears to comprehend." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1nYWdnwwOKFfadj3klfEzyi87Jhp2G8lb">
-
-      <!-- Add the twenty-fourth thumbnail image -->
-      <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1quWEmGNNIKFPqwsUdVz1ziyAJw39SyVR" data-text="On an alien planet, a group of hovercrafts silently descended onto the surface near a small alien town. The townspeople watched in awe and fear as the craft landed, their strange and menacing shapes casting an eerie glow over the buildings below.
-As the hovercrafts settled onto the planet's surface, the air crackled with an otherworldly energy. The townspeople could feel the power of these craft, sensing that they were dealing with forces beyond their comprehension." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1quWEmGNNIKFPqwsUdVz1ziyAJw39SyVR">
-     </div>
-      <!-- The Modal -->
-        <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="img01">
-        <div id="caption" class="image-text"></div>
-  </div>
-    
+            
     
 <script>
   // Function to load the banner image
