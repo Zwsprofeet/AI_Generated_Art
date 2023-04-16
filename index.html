@@ -32,7 +32,7 @@
         align-items: center; /* Add this line to center the containers vertically */
         padding: 20px;
         gap: 20px; /* Add this line to add space between the containers */
-      }
+}
 
       .pitch {
         flex: 1; /* Add this line to make the containers equal width */
@@ -43,32 +43,38 @@
         padding: 20px;
         border-radius: 10px;
         max-width: 300px; /* Add this line to limit the maximum width */
-      }
+}
 
       .gallery {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        grid-gap: 10px;
-        justify-items: center;
-       }
-     
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .gallery-item {
+         position: center;
+         margin: 10px;
+         cursor: pointer;
+         width: calc(90% - 20px); /* Adjust the width to 33.33% minus the margin */
+         box-sizing: border-box; /* Add this to include padding and border in the total width */
+      }
+
       .gallery-item img {
-        width: 100%;
-        display: block;
-       }
+         width: 100%; /* Change this to 100% */
+         height: auto;
+        }
 
       .overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        opacity: 0;
-        transition: opacity 0.5s;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.5s;
       }   
 
       .gallery-item:hover .overlay {
@@ -266,7 +272,6 @@ In the end, humanity emerged victorious, thanks to the bravery and skill of the 
   
    <div class="gallery" id="gallery">
   <div class="gallery-item" data-image="https://drive.google.com/uc?export=view&id=1RpAzzVLpe-_z5dEBYLqr4LQjnibqxOV2" data-text="In another dimension, humans lived in a world that resembled the Victorian era, with bustling streets and ornate buildings. But in this world, strange creatures roamed free, interacting with the humans in a way that was both familiar and alien.
-
 The creatures were unlike anything seen on Earth, with colorful skin and unusual features that defied description. But they moved with a sense of purpose and grace, their movements fluid and effortless." />         
     <img src="https://drive.google.com/uc?export=view&id=1RpAzzVLpe-_z5dEBYLqr4LQjnibqxOV2" />  
     <div class="overlay">
@@ -276,7 +281,6 @@ The creatures were unlike anything seen on Earth, with colorful skin and unusual
   
    <div class="gallery" id="gallery">
   <div class="gallery-item" data-image="https://drive.google.com/uc?export=view&id=1SZpziWABujSRmB4GJVjJMhO7SfQ51WIJ" data-text="On a distant planet, there was an office center inhabited by human-like aliens. The building was a marvel of advanced technology, with sleek lines and glowing surfaces that hummed with energy.
-
 Inside, the aliens moved with a sense of purpose and efficiency, their work mirroring that of human offices on Earth. They typed away at computer screens, held meetings in conference rooms, and chatted with colleagues over cups of coffee." />         
     <img src="https://drive.google.com/uc?export=view&id=1SZpziWABujSRmB4GJVjJMhO7SfQ51WIJ" />  
     <div class="overlay">
@@ -294,7 +298,6 @@ Inside, the aliens moved with a sense of purpose and efficiency, their work mirr
   
    <div class="gallery" id="gallery">
   <div class="gallery-item" data-image="https://drive.google.com/uc?export=view&id=1KK_iXI1VoJELCcHTc63yxgfB2bGX64Hs" data-text="On a distant planet, a group of aliens worked tirelessly in a factory to create the ultimate androids. The aliens were skilled engineers and programmers, with advanced technology and knowledge that surpassed even the most advanced humans on Earth.
-
 The factory hummed with activity, with rows of machines and screens lining the walls, and complex algorithms running on servers in the back. The aliens moved with a sense of purpose and precision, carefully crafting the androids' mechanical bodies and programming their advanced artificial intelligence." />         
     <img src="https://drive.google.com/uc?export=view&id=1KK_iXI1VoJELCcHTc63yxgfB2bGX64Hs" />  
     <div class="overlay">
@@ -304,7 +307,6 @@ The factory hummed with activity, with rows of machines and screens lining the w
   
    <div class="gallery" id="gallery">
   <div class="gallery-item" data-image="https://drive.google.com/uc?export=view&id=1YFx8rZZzHdXdnF2kZatHo2RR-sY1L5s8" data-text="In an other dimension, there existed a world that was too strange and surreal to be explained by human words. The landscape was a jumble of colors and shapes, with strange creatures and structures that defied all logic and understanding.
-
 The beings that lived in this world were not like anything found on Earth. They moved with a sense of fluidity and grace, their limbs and features shifting and changing with each passing moment. Their language was a complex series of clicks and whistles, a symphony of sound that was both beautiful and otherworldly." />         
     <img src="https://drive.google.com/uc?export=view&id=1YFx8rZZzHdXdnF2kZatHo2RR-sY1L5s8" />  
     <div class="overlay">
@@ -314,7 +316,6 @@ The beings that lived in this world were not like anything found on Earth. They 
   
    <div class="gallery" id="gallery">
   <div class="gallery-item" data-image="https://drive.google.com/uc?export=view&id=1fdADCg2Nk3XtmK215J0A3-XHHXk8cCX5" data-text="In the future, there was a factory that provided the ultimate spacecrafts for space exploration. The factory was a marvel of advanced technology, with rows of assembly lines and robotic arms that worked in perfect harmony to craft each spacecraft to perfection.
-
 As the spacecrafts slowly took shape, the workers watched in awe and admiration. Each spacecraft was a masterpiece of engineering, with sleek lines and advanced propulsion systems that would allow them to travel through the depths of space with ease." />         
     <img src="https://drive.google.com/uc?export=view&id=1fdADCg2Nk3XtmK215J0A3-XHHXk8cCX5" />  
     <div class="overlay">
@@ -324,7 +325,6 @@ As the spacecrafts slowly took shape, the workers watched in awe and admiration.
   
    <div class="gallery" id="gallery">
   <div class="gallery-item" data-image="https://drive.google.com/uc?export=view&id=1hMiXg3fXRyrhTzvBRKk7zncK3dZrIe_M" data-text="In a different dimension, there existed a place unlike any other, a place of wondrous and marvelous colors. The air shimmered and glowed with a rainbow of hues, from brilliant pinks and purples to deep blues and greens.
-
 The landscape was equally breathtaking, with towering mountains that glinted with metallic flecks and valleys that sparkled like jewels. The rivers flowed with liquid silver, reflecting the dazzling colors of the sky above." />         
     <img src="https://drive.google.com/uc?export=view&id=1hMiXg3fXRyrhTzvBRKk7zncK3dZrIe_M" />  
     <div class="overlay">
@@ -344,7 +344,6 @@ As the Giants integrated into human society, they brought with them a sense of h
   
    <div class="gallery" id="gallery">
   <div class="gallery-item" data-image="https://drive.google.com/uc?export=view&id=1nYWdnwwOKFfadj3klfEzyi87Jhp2G8lb" data-text="On a distant moon, there existed a factory unlike anything that could be found in the human universe. The factory was a labyrinthine structure of twisted metal and jagged edges, with strange machines and equipment that hummed and pulsated with otherworldly energy.
-
 The workers in the factory were not human. They moved with a sense of fluidity and grace, their limbs and features shifting and changing with each passing moment. They communicated through a series of clicks and whistles that were impossible for human ears to comprehend." />         
     <img src="https://drive.google.com/uc?export=view&id=1nYWdnwwOKFfadj3klfEzyi87Jhp2G8lb" />  
     <div class="overlay">
@@ -354,7 +353,6 @@ The workers in the factory were not human. They moved with a sense of fluidity a
   
    <div class="gallery" id="gallery">
   <div class="gallery-item" data-image="https://drive.google.com/uc?export=view&id=1quWEmGNNIKFPqwsUdVz1ziyAJw39SyVR" data-text="On an alien planet, a group of hovercrafts silently descended onto the surface near a small alien town. The townspeople watched in awe and fear as the craft landed, their strange and menacing shapes casting an eerie glow over the buildings below.
-
 As the hovercrafts settled onto the planet's surface, the air crackled with an otherworldly energy. The townspeople could feel the power of these craft, sensing that they were dealing with forces beyond their comprehension." />         
     <img src="https://drive.google.com/uc?export=view&id=1quWEmGNNIKFPqwsUdVz1ziyAJw39SyVR" />  
     <div class="overlay">
