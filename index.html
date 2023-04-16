@@ -149,6 +149,73 @@
   .hidden {
     display: none;
     }
+      
+      /* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 100%;
+  max-height: 80%;
+}
+
+/* Add Animation */
+.modal-content {
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)}
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)}
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.image-text {
+  color: grey;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: 'Shadows Into Light', sans-serif;
+  text-align: center;
+  padding: 20px;
 }
 </style>
     
@@ -253,10 +320,15 @@ The workers in the factory were not human. They moved with a sense of fluidity a
       <!-- Add the twenty-fourth thumbnail image -->
       <img class="image-link" data-src="https://drive.google.com/uc?export=view&id=1quWEmGNNIKFPqwsUdVz1ziyAJw39SyVR" data-text="On an alien planet, a group of hovercrafts silently descended onto the surface near a small alien town. The townspeople watched in awe and fear as the craft landed, their strange and menacing shapes casting an eerie glow over the buildings below.
 As the hovercrafts settled onto the planet's surface, the air crackled with an otherworldly energy. The townspeople could feel the power of these craft, sensing that they were dealing with forces beyond their comprehension." alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1quWEmGNNIKFPqwsUdVz1ziyAJw39SyVR">
-
+     </div>
+      <!-- The Modal -->
+        <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption" class="image-text"></div>
+  </div>
     
-    </div>
-      
+    
 <script>
   // Function to load the banner image
   function loadBannerImage() {
@@ -281,12 +353,19 @@ As the hovercrafts settled onto the planet's surface, the air crackled with an o
     });
   }
 
- function openImageInNewTab(url, text) {
-  const newWindow = window.open('', '_blank');
-  newWindow.document.write('<!DOCTYPE html><html><head><title>AI Generated Art</title><style>body { margin: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100vh; background-color: black; } .image-text { color: grey; font-size: 16px; font-weight: medium; text-align: center; padding: 20px; }</style></head><body><img src="' + url + '" alt="AI Generated Art" style="max-width: 100%; max-height: 80%;"><div class="image-text">' + text + '</div></body></html>');
-  newWindow.document.close();
-  newWindow.opener = null;
-}
+ function showModal(imageURL, imageText) {
+  const modal = document.getElementById("myModal");
+  const modalImg = document.getElementById("img01");
+  const captionText = document.getElementById("caption");
+
+  modal.style.display = "block";
+  modalImg.src = imageURL;
+  captionText.innerHTML = imageText;
+
+  const span = document.getElementsByClassName("close")[0];
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
 
   function setBannerText() {
     const desktopText = 'AI Generated Art';
@@ -317,7 +396,7 @@ As the hovercrafts settled onto the planet's surface, the air crackled with an o
   $('.image-link').on('click', function() {
   const imageURL = $(this).data('image-url');
   const imageText = $(this).data('text');
-  openImageInNewTab(imageURL, imageText);
+  showModal(imageURL, imageText);
 });
  function showPopup(imageUrl, text) {
   document.getElementById("popup-image").src = imageUrl;
