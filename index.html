@@ -183,39 +183,37 @@
       <p id="modalText"></p>
   </div>
 
+         
+<script>
+  document
+    .querySelectorAll(".gallery-item")
+    .forEach((item) =>
+      item.addEventListener("click", function () {
+        const modal = document.getElementById("myModal");
+        const modalImage = document.getElementById("modalImage");
+        const modalText = document.getElementById("modalText");
 
-    <script>
-      document
-        .querySelectorAll(".gallery-item")
-        .forEach((item) =>
-          item.addEventListener("click", function () {
-            const modal = document.getElementById("myModal");
-            const modalImage = document.getElementById("modalImage");
+        const imgSrc = item.getAttribute("data-image");
+        const text = item.getAttribute("data-text");
+        modalImage.src = imgSrc;
+        modalText.textContent = text;
 
-            const imgSrc = item.getAttribute("data-image");
-            modalImage.src = imgSrc;
+        modal.style.display = "block";
+      })
+    );
 
-            modal.style.display = "block";
-          })
-        );
+  const closeModal = document.querySelector(".close");
+  closeModal.addEventListener("click", function () {
+    const modal = document.getElementById("myModal");
+    modal.style.display = "none";
+  });
 
-     document
-  .querySelectorAll(".gallery-item")
-  .forEach((item) =>
-    item.addEventListener("click", function () {
-      const modal = document.getElementById("myModal");
-      const modalImage = document.getElementById("modalImage");
-      const modalText = document.getElementById("modalText");
-
-      const imgSrc = item.getAttribute("data-image");
-      const text = item.getAttribute("data-text");
-      modalImage.src = imgSrc;
-      modalText.textContent = text;
-
-      modal.style.display = "block";
-    })
-  );
-    </script>
-  </body>
+  window.addEventListener("click", function (event) {
+    const modal = document.getElementById("myModal");
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+</script>
+</body>
 </html>
-
