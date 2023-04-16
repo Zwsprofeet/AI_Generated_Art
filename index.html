@@ -25,18 +25,22 @@
         color: white;
       }
 
-      .pitch {
-        width: 300px;
-        text-align: center;
-        background-color: rgba(255, 255, 255, 0.2); /* Add a transparent white background */
+      .pitch-container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center; /* Add this line to center the containers vertically */
         padding: 20px;
-        border-radius: 10px; /* Add rounded corners to the container */
-      }
+        gap: 20px; /* Add this line to add space between the containers */
+}
 
       .pitch {
-        width: 300px;
+        flex: 1; /* Add this line to make the containers equal width */
         text-align: center;
-      }
+        background-color: rgba(255, 255, 255, 0.2);
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 300px; /* Add this line to limit the maximum width */
+}
 
       .gallery {
         display: flex;
