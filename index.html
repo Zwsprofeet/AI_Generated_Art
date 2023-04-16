@@ -158,8 +158,17 @@
       <img class="image-link" src="https://drive.google.com/uc?export=view&id=1fwErKNXGt4hMuegRxR11VOCOrhfcFLze" alt="Clickable Image" data-image-url="https://drive.google.com/uc?export=view&id=1fwErKNXGt4hMuegRxR11VOCOrhfcFLze">
     </div>
       
-<!-- Add the script to open the pop-up and change banner text -->
 <script>
+  // Function to load the banner image
+  function loadBannerImage() {
+    const bannerImage = new Image();
+    bannerImage.src = 'https://drive.google.com/uc?export=view&id=1rx4Wd80-gurmn8gzRGDmvWv_cQPQllSU';
+    bannerImage.onload = function () {
+      document.getElementById('banner-img').src = this.src;
+      document.getElementById('banner-img').style.display = 'block';
+    };
+  }
+
   function openImageInNewTab(url) {
     const newWindow = window.open(url, '_blank');
     newWindow.opener = null;
@@ -191,25 +200,11 @@
     }
   }
 
-  // Call setBannerText on load and when the window is resized
-  window.addEventListener('load', setBannerText);
+  // Call setBannerText and loadBannerImage on load and setBannerText when the window is resized
+  window.addEventListener('load', function() {
+    setBannerText();
+    loadBannerImage();
+  });
   window.addEventListener('resize', setBannerText);
-</script>
-
-    <script>
-  // Function to load the banner image
-  function loadBannerImage() {
-    const bannerImage = new Image();
-    bannerImage.src = 'https://drive.google.com/uc?export=view&id=1lVvcoXT2BixeRavhs8qkrU0viEZrpG9a';
-    bannerImage.onload = function () {
-      document.getElementById('banner-img').src = this.src;
-      document.getElementById('banner-img').style.display = 'block';
-    };
-  }
-
-  // Call the loadBannerImage function on page load
-  window.addEventListener('load', loadBannerImage);
-
-  // ... Rest of your script
 </script>
 
