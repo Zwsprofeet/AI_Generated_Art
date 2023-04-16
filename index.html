@@ -223,30 +223,25 @@
       document.getElementById('banner-img').src = this.src;
       document.getElementById('banner-img').style.display = 'block';
     };
-    function loadThumbnailImages() {
-  const thumbnailImages = document.querySelectorAll('.image-link');
+  }
 
-  thumbnailImages.forEach((thumbnailImage) => {
-    const img = new Image();
-    img.src = thumbnailImage.getAttribute('data-src');
-    img.onload = function () {
-      thumbnailImage.src = this.src;
-    };
+  // Function to load the thumbnail images
+  function loadThumbnailImages() {
+    const thumbnailImages = document.querySelectorAll('.image-link');
+
+    thumbnailImages.forEach((thumbnailImage) => {
+      const img = new Image();
+      img.src = thumbnailImage.getAttribute('data-src');
+      img.onload = function () {
+        thumbnailImage.src = this.src;
+      };
+    });
   }
 
   function openImageInNewTab(url) {
     const newWindow = window.open(url, '_blank');
     newWindow.opener = null;
   }
-
-  $('.image-link').on('click', function() {
-    const imageURL = $(this).data('image-url');
-    if (window.matchMedia('(max-width: 767px)').matches) {
-      openImageInNewTab(imageURL);
-    } else {
-      window.open(imageURL, '_blank', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=640,height=480');
-    }
-  });
 
   function setBannerText() {
     const desktopText = 'AI Generated Art';
@@ -265,12 +260,21 @@
     }
   }
 
-  // Call setBannerText and loadBannerImage on load and setBannerText when the window is resized
+  // Call setBannerText, loadBannerImage, and loadThumbnailImages on load, and setBannerText when the window is resized
   window.addEventListener('load', function() {
     setBannerText();
     loadBannerImage();
     loadThumbnailImages();
   });
   window.addEventListener('resize', setBannerText);
-</script>
 
+  // Add click event listener for the thumbnail images
+  $('.image-link').on('click', function() {
+    const imageURL = $(this).data('image-url');
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      openImageInNewTab(imageURL);
+    } else {
+      window.open(imageURL, '_blank', 'toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=640,height=480');
+    }
+  });
+</script>
