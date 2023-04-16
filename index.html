@@ -149,6 +149,7 @@
   .hidden {
     display: none;
     }
+}
 </style>
     
     <div class="banner">
@@ -332,10 +333,11 @@ As the hovercrafts settled onto the planet's surface, the air crackled with an o
   const imageText = $(this).data('text');
   openImageInNewTab(imageURL, imageText);
 });
-  function showPopup(imageUrl, text) {
-    document.getElementById("popup-text").innerHTML = text;
-    document.getElementById("popup").style.display = "block";
-  }
+ function showPopup(imageUrl, text) {
+  document.getElementById("popup-image").src = imageUrl;
+  document.getElementById("popup-text").innerHTML = text;
+  document.getElementById("popup").style.display = "block";
+}
 
   function hidePopup() {
     document.getElementById("popup").style.display = "none";
